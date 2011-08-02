@@ -2,16 +2,11 @@ package org.geofft.constraint;
 
 import org.geofft.validator.NameMustBeGeoffValidator;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
+import javax.validation.*;
+import java.lang.annotation.*;
 
 import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.ElementType.CONSTRUCTOR;
-import static java.lang.annotation.ElementType.PARAMETER;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static java.lang.annotation.RetentionPolicy.*;
 
 @Documented
 @Constraint(validatedBy = NameMustBeGeoffValidator.class)

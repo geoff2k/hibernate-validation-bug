@@ -1,0 +1,19 @@
+
+Composed constraints lose the payload information of the constraints they are
+composed of.
+
+If you annotate a customer with the following constraint:
+
+@ValidCustomer
+public class Customer { ... }
+
+And the ValidCustomer constraint is composed of a @NameMustBeGeoff constraint
+that has a payload:
+
+@NameMustBeGeoff(payload = Error.class)
+
+When the violation is returned, even though the violation will be from the
+NameMustBeGeoff annotation, the payload defined for NameMustBeGeoff will be
+lost.
+
+

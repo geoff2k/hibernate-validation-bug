@@ -30,6 +30,14 @@
         <version>4.3.1</version>
     </dependency>
 
+    <!-- Gets rid of the slf4j warning
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-jdk14</artifactId>
+        <version>1.6.1</version>
+    </dependency>
+    -->
+
   </dependencies>
 
 <build>

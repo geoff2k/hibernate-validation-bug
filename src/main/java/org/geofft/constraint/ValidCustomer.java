@@ -3,18 +3,19 @@ package org.geofft.constraint;
 import org.geofft.Customer;
 import org.geofft.validator.ValidCustomerValidator;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
+import javax.validation.*;
+import javax.validation.constraints.NotNull;
+import java.lang.annotation.*;
 
 import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.ElementType.CONSTRUCTOR;
-import static java.lang.annotation.ElementType.PARAMETER;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static java.lang.annotation.RetentionPolicy.*;
 
-@NameMustBeGeoff(payload = Customer.Error.class) // TODO : why does this get lost?
+/**
+ * Note the @NameMustBeGeoff constraint and its payload.
+ * <p/>
+ * The issue is that this payload is not surfaced.
+ */
+@NameMustBeGeoff(payload = Customer.Error.class)
 @Documented
 @Constraint(validatedBy = ValidCustomerValidator.class)
 @Target({ TYPE, METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
@@ -26,4 +27,5 @@ public @interface ValidCustomer {
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+
 }
